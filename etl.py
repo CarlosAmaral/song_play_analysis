@@ -4,7 +4,11 @@ import psycopg2
 import pandas as pd
 from sql_queries import *
 
+
 def get_files(filepath):
+    """
+    Searches through a file path for json files and returns a list of them 
+    """
     all_files = []
     for root, dirs, files in os.walk(filepath):
         files = glob.glob(os.path.join(root,'*.json'))
@@ -14,9 +18,17 @@ def get_files(filepath):
     return all_files
 
 def process_song_file(cur, filepath):
-    # open song file
-    song_files = get_files('data/song_data')
-    filepath = song_files[0]
+    """
+    - Gets the list of json files available in the song_data folder
+    
+    - Takes into consideration only the first found json file
+
+    - Parses the file using pandas' read_json
+
+    - Inserts relevant songs related data into the song table
+
+    - Inserts relevant artist related data into the artists table
+    """
     df = pd.read_json(filepath, lines=True)
 
     # insert song record
@@ -30,13 +42,26 @@ def process_song_file(cur, filepath):
 
 
 def process_log_file(cur, filepath):
-    # open log file
-    log_files = get_files('data/log_data')
-    filepath = log_files[0]
+    """
+    - Gets the list of json files available in the log_data folder
+    
+    - Takes into consideration only the first found json file
+
+    - Parses the file using pandas' read_json
+
+    - Filters out all the log data that doesn't contain Next Song in the column page
+
+    - Parses the timestamp column name to create the time table with aditional fields 
+
+    - Inserts relevant time related data from the time_data into the time table 
+
+    - Inserts relevant user related data into the users table
+
+    - Lastly inserts table into the songplay table after querying data from all the dimensional tables
+    """
     df = pd.read_json(filepath, lines=True)
     df.head()
 
-    # filter by NextSong action
     df = df[df['page']=='NextSong']
     df.head()
 
@@ -97,6 +122,14 @@ def process_data(cur, conn, filepath, func):
 
 
 def main():
+
+    """
+    - Connects to the sparkify database
+    
+    - Runs process_song_file and process_log_file functions
+    
+    - Finally, closes the connection. 
+    """
     conn = psycopg2.connect("host=127.0.0.1 dbname=sparkifydb user=carlosamaral")
     cur = conn.cursor()
 
