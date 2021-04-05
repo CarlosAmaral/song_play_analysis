@@ -1,7 +1,7 @@
 # Song Play Analysis
 
 ## Introduction
-This project aims analyse data from song plays based on user interaction, think of Spotify. In this project we create a star schema database to enable us to understand how to best query and update this data. To achieve this goal we create a suitable database shema with a ETL pipeline.
+This project aims analyse data from song plays based on user interaction, think of Spotify. In this project we create a star schema database model to best connect and understand our data. To achieve this goal we create a suitable database shema with a ETL pipeline.
 
 ## Database schema
 The schema can be quickly visualized by opening up the `index.html` under `doc/sparkifydb`.
@@ -15,7 +15,7 @@ This database schema encompasses the following tables from two distinct data set
     - time table: dimensional table containing data related to the times when users when users were listening to music;
     - users table: dimensional table containing user data such as first and last name, gender and subscription level.
 
-Lasly, the fact table that gathers the data from these two data sets is called songplay table. It contains FKs such as artist Id, song Id and user Id, as well as timestamp of when the song was played and location.
+Lastly, the fact table that gathers the data from these two data sets is called songplay table. It contains FKs such as artist Id, song Id and user Id, as well as timestamp of when the song was played and location.
 
 
 ## Setup
