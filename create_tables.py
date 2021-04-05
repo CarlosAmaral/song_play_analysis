@@ -41,9 +41,11 @@ def create_tables(cur, conn):
     Creates each table using the queries in `create_table_queries` list. 
     """
     for query in create_table_queries:
-        cur.execute(query)
-        conn.commit()
-
+        try:
+            cur.execute(query)
+            conn.commit()
+        except:
+            print(query)
 
 def main():
     """
