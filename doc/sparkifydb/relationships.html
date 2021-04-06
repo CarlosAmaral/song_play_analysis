@@ -87,36 +87,42 @@
                                 <!-- Tabs within a box -->
                                 <h5>By default only columns that are primary keys, foreign keys or indexes are shown.</h5>
                                 <ul class="nav nav-tabs pull-left ui-sortable-handle">
-                                    <li class="active"><a href="#compactimpliedDegreeImg-chart" data-toggle="tab" aria-expanded="true">Compact Implied</a></li>
+                                    <li class="active"><a href="#compactDegreeImg-chart" data-toggle="tab" aria-expanded="true">Compact</a></li>
+                                    <li class=""><a href="#largeDegreeImg-chart" data-toggle="tab" aria-expanded="true">Large</a></li>
+                                    <li class=""><a href="#compactimpliedDegreeImg-chart" data-toggle="tab" aria-expanded="true">Compact Implied</a></li>
                                     <li class=""><a href="#largeimpliedDegreeImg-chart" data-toggle="tab" aria-expanded="true">Large Implied</a></li>
                                 </ul>
                                 <div class="tab-content no-padding">
-                                    <div class="chart tab-pane active" id="compactimpliedDegreeImg-chart" style="position: relative; overflow-x:auto;">
-                                        <div class="alert alert-warning alert-dismissible">
-                                            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-                                            <h4><i class="icon fa fa-info-circle"></i> Implied Relationships</h4>
-                                            <p>No 'real' Foreign Key relationships were detected in the schema.<br />
-                                                Displayed relationships are implied by a column's name/type/size matching another table's primary key.</p>
-                                        </div>
+                                    <div class="chart tab-pane active" id="compactDegreeImg-chart" style="position: relative; overflow-x:auto;">
+                                        <map id="compactRelationshipsDiagram" name="compactRelationshipsDiagram">
+<area shape="rect" id="node1" href="tables/artists.html" target="_top" title="artists" alt="" coords="5,140,175,257">
+<area shape="rect" id="node2" href="tables/songplay.html" target="_top" title="songplay" alt="" coords="219,29,367,205">
+<area shape="rect" id="node3" href="tables/songs.html" target="_top" title="songs" alt="" coords="26,5,154,123">
+</map>
+                                        <a name='diagram'><img id="compactDegreeImg" src="diagrams/summary/relationships.real.compact.png" usemap="#compactRelationshipsDiagram" class="diagram" border="0" align="left"></a>
+                                    </div>
+                                    <div class="chart tab-pane " id="largeDegreeImg-chart" style="position: relative; overflow-x:auto;">
+                                        <map id="largeRelationshipsDiagram" name="largeRelationshipsDiagram">
+<area shape="rect" id="node1" href="tables/artists.html" target="_top" title="artists" alt="" coords="5,251,175,432">
+<area shape="rect" id="node2" href="tables/songplay.html" target="_top" title="songplay" alt="" coords="219,5,367,333">
+<area shape="rect" id="node3" href="tables/songs.html" target="_top" title="songs" alt="" coords="26,23,154,233">
+</map>
+                                        <a name='diagram'><img id="largeDegreeImg" src="diagrams/summary/relationships.real.large.png" usemap="#largeRelationshipsDiagram" class="diagram" border="0" align="left"></a>
+                                    </div>
+                                    <div class="chart tab-pane " id="compactimpliedDegreeImg-chart" style="position: relative; overflow-x:auto;">
                                         <map id="compactImpliedRelationshipsDiagram" name="compactImpliedRelationshipsDiagram">
 <area shape="rect" id="node1" href="tables/artists.html" target="_top" title="artists" alt="" coords="5,217,175,335">
-<area shape="rect" id="node2" href="tables/songplay.html" target="_top" title="songplay" alt="" coords="392,81,537,287">
-<area shape="rect" id="node3" href="tables/songs.html" target="_top" title="songs" alt="" coords="221,140,345,287">
+<area shape="rect" id="node2" href="tables/songplay.html" target="_top" title="songplay" alt="" coords="392,81,540,287">
+<area shape="rect" id="node3" href="tables/songs.html" target="_top" title="songs" alt="" coords="219,140,347,287">
 <area shape="rect" id="node4" href="tables/users.html" target="_top" title="users" alt="" coords="219,5,348,123">
 </map>
                                         <a name='diagram'><img id="compactimpliedDegreeImg" src="diagrams/summary/relationships.implied.compact.png" usemap="#compactImpliedRelationshipsDiagram" class="diagram" border="0" align="left"></a>
                                     </div>
                                     <div class="chart tab-pane " id="largeimpliedDegreeImg-chart" style="position: relative; overflow-x:auto;">
-                                        <div class="alert alert-warning alert-dismissible">
-                                            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-                                            <h4><i class="icon fa fa-info-circle"></i> Implied Relationships</h4>
-                                            <p>No 'real' Foreign Key relationships were detected in the schema.<br />
-                                                Displayed relationships are implied by a column's name/type/size matching another table's primary key.</p>
-                                        </div>
                                         <map id="largeImpliedRelationshipsDiagram" name="largeImpliedRelationshipsDiagram">
 <area shape="rect" id="node1" href="tables/artists.html" target="_top" title="artists" alt="" coords="5,357,175,539">
-<area shape="rect" id="node2" href="tables/songplay.html" target="_top" title="songplay" alt="" coords="392,116,537,444">
-<area shape="rect" id="node3" href="tables/songs.html" target="_top" title="songs" alt="" coords="221,233,345,444">
+<area shape="rect" id="node2" href="tables/songplay.html" target="_top" title="songplay" alt="" coords="392,116,540,444">
+<area shape="rect" id="node3" href="tables/songs.html" target="_top" title="songs" alt="" coords="219,233,347,444">
 <area shape="rect" id="node4" href="tables/users.html" target="_top" title="users" alt="" coords="219,5,348,216">
 </map>
                                         <a name='diagram'><img id="largeimpliedDegreeImg" src="diagrams/summary/relationships.implied.large.png" usemap="#largeImpliedRelationshipsDiagram" class="diagram" border="0" align="left"></a>

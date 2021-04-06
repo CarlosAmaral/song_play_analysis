@@ -73,7 +73,7 @@
             <div class="content-wrapper">
                 <!-- Content Header (Page header) -->
                 <section class="content-header">
-                    <h1>artists</h1><p><span id="recordNumber">1</span> rows</p><br />
+                    <h1>artists</h1><p><span id="recordNumber">69</span> rows</p><br />
                 </section>
                 <!-- Main content -->
                 <section class="content">
@@ -112,8 +112,8 @@
                                     <td>
                                         <table border='0' cellspacing='0' cellpadding='0'>
                                             <tr>
-                                                <td title="songplay.artist_id&#39;s name implies that it&#39;s a child of artists.artist_id, but it doesn&#39;t reference that column."><a href='songplay.html'>songplay</a><span class='relatedKey'>.artist_id</span></td>
-                                                <td class="constraint detail">Implied Constraint<span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
+                                                <td title="songplay.artist_id references artists.artist_id via artist_id"><a href='songplay.html'>songplay</a><span class='relatedKey'>.artist_id</span></td>
+                                                <td class="constraint detail">artist_id<span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
                                             </tr>
                                             <tr>
                                                 <td title="songs.artist_id&#39;s name implies that it&#39;s a child of artists.artist_id, but it doesn&#39;t reference that column."><a href='songs.html'>songs</a><span class='relatedKey'>.artist_id</span></td>
@@ -226,30 +226,40 @@
                                 <h5>Close relationships within degrees of separation</h5>
                                 <ul class="nav nav-tabs pull-left ui-sortable-handle">
                                     <li class="active"><a href="#oneDegreeImg-chart" data-toggle="tab" aria-expanded="true">One</a></li>
+                                    <li class=""><a href="#twodegreesDegreeImg-chart" data-toggle="tab" aria-expanded="true">Two degrees</a></li>
                                     <li class=""><a href="#oneimpliedDegreeImg-chart" data-toggle="tab" aria-expanded="true">One implied</a></li>
                                     <li class=""><a href="#twoimpliedDegreeImg-chart" data-toggle="tab" aria-expanded="true">Two implied</a></li>
                                 </ul>
                                 <div class="tab-content no-padding">
                                     <div class="chart tab-pane active" id="oneDegreeImg-chart" style="position: relative; overflow-x:auto;">
                                         <map id="oneDegreeRelationshipsDiagram" name="oneDegreeRelationshipsDiagram">
-<area shape="rect" id="node1" href="artists.html" target="_top" title="artists" alt="" coords="5,5,325,192">
+<area shape="rect" id="node1" href="songplay.html" target="_top" title="songplay" alt="" coords="369,5,517,211">
+<area shape="rect" id="node2" href="artists.html" target="_top" title="artists" alt="" coords="5,91,325,277">
 </map>
                                         <a name='diagram'><img id="oneDegreeImg" src="../diagrams/tables/artists.1degree.png" usemap="#oneDegreeRelationshipsDiagram" class="diagram" border="0" align="left"></a>
                                     </div>
+                                    <div class="chart tab-pane " id="twodegreesDegreeImg-chart" style="position: relative; overflow-x:auto;">
+                                        <map id="twoDegreesRelationshipsDiagram" name="twoDegreesRelationshipsDiagram">
+<area shape="rect" id="node1" href="songplay.html" target="_top" title="songplay" alt="" coords="369,5,517,211">
+<area shape="rect" id="node2" href="artists.html" target="_top" title="artists" alt="" coords="5,131,325,317">
+<area shape="rect" id="node3" href="songs.html" target="_top" title="songs" alt="" coords="101,25,229,113">
+</map>
+                                        <a name='diagram'><img id="twodegreesDegreeImg" src="../diagrams/tables/artists.2degrees.png" usemap="#twoDegreesRelationshipsDiagram" class="diagram" border="0" align="left"></a>
+                                    </div>
                                     <div class="chart tab-pane " id="oneimpliedDegreeImg-chart" style="position: relative; overflow-x:auto;">
                                         <map id="oneDegreeRelationshipsDiagramImplied" name="oneDegreeRelationshipsDiagramImplied">
-<area shape="rect" id="node1" href="songplay.html" target="_top" title="songplay" alt="" coords="539,5,684,211">
+<area shape="rect" id="node1" href="songplay.html" target="_top" title="songplay" alt="" coords="553,5,701,211">
 <area shape="rect" id="node2" href="artists.html" target="_top" title="artists" alt="" coords="5,91,325,277">
-<area shape="rect" id="node3" href="songs.html" target="_top" title="songs" alt="" coords="369,16,495,163">
+<area shape="rect" id="node3" href="songs.html" target="_top" title="songs" alt="" coords="369,16,509,163">
 </map>
                                         <a name='diagram'><img id="oneimpliedDegreeImg" src="../diagrams/tables/artists.implied1degrees.png" usemap="#oneDegreeRelationshipsDiagramImplied" class="diagram" border="0" align="left"></a>
                                     </div>
                                     <div class="chart tab-pane " id="twoimpliedDegreeImg-chart" style="position: relative; overflow-x:auto;">
                                         <map id="twoDegreesRelationshipsDiagramImplied" name="twoDegreesRelationshipsDiagramImplied">
-<area shape="rect" id="node1" href="songplay.html" target="_top" title="songplay" alt="" coords="539,52,684,257">
+<area shape="rect" id="node1" href="songplay.html" target="_top" title="songplay" alt="" coords="553,52,701,257">
 <area shape="rect" id="node2" href="artists.html" target="_top" title="artists" alt="" coords="5,185,325,372">
-<area shape="rect" id="node3" href="songs.html" target="_top" title="songs" alt="" coords="369,111,495,257">
-<area shape="rect" id="node4" href="users.html" target="_top" title="users" alt="" coords="372,5,492,93">
+<area shape="rect" id="node3" href="songs.html" target="_top" title="songs" alt="" coords="369,111,509,257">
+<area shape="rect" id="node4" href="users.html" target="_top" title="users" alt="" coords="375,5,503,93">
 </map>
                                         <a name='diagram'><img id="twoimpliedDegreeImg" src="../diagrams/tables/artists.implied2degrees.png" usemap="#twoDegreesRelationshipsDiagramImplied" class="diagram" border="0" align="left"></a>
                                     </div>

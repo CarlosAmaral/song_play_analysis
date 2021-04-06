@@ -44,8 +44,8 @@ def create_tables(cur, conn):
         try:
             cur.execute(query)
             conn.commit()
-        except:
-            print(query)
+        except Exception as e:
+            print(e, query)
 
 def main():
     """

@@ -1,4 +1,4 @@
-date=2021-04-05 17:47:44+0400
+date=2021-04-06 13:15:53+0400
 os=Mac OS X 10.15.7
 schemaspy-version=6.1.0
 schemaspy-build=6.1.0.41 2019-09-17 21:52:57

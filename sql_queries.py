@@ -13,7 +13,7 @@ DROP TABLE IF EXISTS songs
 """)
 
 artist_table_drop = ("""
-DROP TABLE IF EXISTS artist
+DROP TABLE IF EXISTS artists
 """)
 
 time_table_drop = ("""
@@ -21,19 +21,6 @@ DROP TABLE IF EXISTS time
 """)
 
 # CREATE TABLES
-songplay_table_create = ("""
-CREATE TABLE IF NOT EXISTS songplay (
-songplay_id SERIAL PRIMARY KEY,
-timestamp bigint NOT NULL, 
-user_id int NOT NULL, 
-level varchar, 
-song_id varchar NOT NULL,
-artist_id varchar NOT NULL,
-session_id int NOT NULL,
-location text,
-user_agent text
-)
-""")
 
 user_table_create = ("""
 CREATE TABLE IF NOT EXISTS users (
@@ -45,8 +32,6 @@ level varchar,
 PRIMARY KEY(user_id)
 )
 """)
-
-
 
 artist_table_create = ("""
 CREATE TABLE IF NOT EXISTS artists (
@@ -79,6 +64,22 @@ month int,
 year int, 
 week_day int,
 PRIMARY KEY(start_time)
+)
+""")
+
+songplay_table_create = ("""
+CREATE TABLE IF NOT EXISTS songplay (
+songplay_id SERIAL PRIMARY KEY,
+timestamp bigint NOT NULL, 
+user_id int NOT NULL, 
+level varchar, 
+song_id varchar,
+artist_id varchar,
+session_id int NOT NULL,
+location text,
+user_agent text,
+CONSTRAINT song_id FOREIGN KEY(song_id) REFERENCES songs(song_id),
+CONSTRAINT artist_id FOREIGN KEY(artist_id) REFERENCES artists(artist_id)
 )
 """)
 
@@ -142,6 +143,7 @@ month,
 year, 
 week_day)
 VALUES (%s, %s, %s, %s, %s, %s, %s)
+ON CONFLICT DO NOTHING
 """)
 
 # FIND SONGS
@@ -156,7 +158,7 @@ AND s.duration = %s
 """)
 
 # QUERY LISTS
-create_table_queries = [songplay_table_create, user_table_create,
-                        song_table_create, artist_table_create, time_table_create]
+create_table_queries = [artist_table_create, song_table_create, time_table_create, 
+                        user_table_create, songplay_table_create]
 drop_table_queries = [songplay_table_drop, user_table_drop,
                       song_table_drop, artist_table_drop, time_table_drop]
