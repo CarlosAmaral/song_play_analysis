@@ -5,18 +5,6 @@ import pandas as pd
 from sql_queries import *
 
 
-def get_files(filepath):
-    """
-    Searches through a file path for json files and returns a list of them 
-    """
-    all_files = []
-    for root, dirs, files in os.walk(filepath):
-        files = glob.glob(os.path.join(root,'*.json'))
-        for f in files :
-            all_files.append(os.path.abspath(f))
-    
-    return all_files
-
 def process_song_file(cur, filepath):
     """
     - Gets the list of json files available in the song_data folder
